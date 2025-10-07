@@ -1,7 +1,6 @@
 package controlador;
 
 import app.BaseDatos;
-import modelos.Cliente;
 import modelos.Mecanico;
 import util.Consola;
 
@@ -16,8 +15,6 @@ public class MecanicoControlador {
         String correo = Consola.readln("Ingrese el correo del mecanico");
         String especialidad = Consola.readln("Ingrese la especialidad del mecanico");
         double tarifaHora =- Consola.readDouble("Ingrese la tarifa x hora del mecanico");
-        agregarServicios();
-
         Mecanico nuevoMecanico = new Mecanico(nombre, cedula, telefono, correo, especialidad, tarifaHora);
         BaseDatos.listaMecanicos.add(nuevoMecanico);
         Consola.println("Cliente registrado correctamente");
@@ -28,7 +25,7 @@ public class MecanicoControlador {
         boolean encontrado = false;
 
         for (Mecanico mecanico : BaseDatos.listaMecanicos) {
-            if (Mecanico.getCedula().equals(cedula)) {
+            if (mecanico.getCedula().equals(cedula)) {
                 Consola.println("Cliente encontrado correctamente");
                 encontrado = true;
                 return mecanico;
@@ -43,12 +40,12 @@ public class MecanicoControlador {
     }
 
     public void listar() {
-        if (BaseDatos.listaClientes.isEmpty()) {
+        if (BaseDatos.listaMecanicos.isEmpty()) {
             Consola.println("No hay clientes registrados");
         } else {
             Consola.println("Lista de Clientes ");
-            for (Cliente cliente : BaseDatos.listaClientes) {
-                Consola.println(cliente.toString());
+            for (Mecanico mecanico : BaseDatos.listaMecanicos) {
+                Consola.println(mecanico.toString());
             }
         }
     }
@@ -57,10 +54,10 @@ public class MecanicoControlador {
         String cedula = Consola.readln("Ingrese la cedula del cliente: ");
 
         boolean encontrado = false;
-        for (Cliente cliente : BaseDatos.listaClientes) {
-            if (cliente.getCedula().equals(cedula)) {
+        for (Mecanico mecanico : BaseDatos.listaMecanicos) {
+            if (mecanico.getCedula().equals(cedula)) {
                 Consola.println("Cliente eliminado correctamente");
-                BaseDatos.listaClientes.remove(cliente);
+                BaseDatos.listaMecanicos.remove(mecanico);
                 encontrado = true;
                 break;
             }
