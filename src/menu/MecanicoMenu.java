@@ -3,6 +3,7 @@ package menu;
 import app.BaseDatos;
 import controlador.MecanicoControlador;
 import modelos.Mecanico;
+import modelos.Servicio;
 import util.Consola;
 
 import java.io.IOException;
@@ -49,9 +50,19 @@ public class MecanicoMenu {
 
         if (!controlador.registrar(nombre, cedula, telefono, correo, especialidad)) {
             Consola.println("El mecanico ya se encuentra registrado");
+            return;
         }
 
         Consola.println("Mecanico registrado correctamente");
+        Consola.println("A continuacion, agregue los servicios que impartira el mecanico...");
+
+        // INSTANCIA SERVICIO: Crea una instancia del mecanico recien registrado y se envia a ServicioMenu
+        // ServicioMenu se encarga de solicitar los servicios que imparte el mecanico
+
+        ServicioMenu servicioMenu = new ServicioMenu();
+        Mecanico mecanico = controlador.buscar(cedula);
+        servicioMenu.activar(mecanico);
+
     }
 
     public void buscar() throws IOException{

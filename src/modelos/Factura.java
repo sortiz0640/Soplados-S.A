@@ -1,5 +1,4 @@
 package modelos;
-import util.TipoPago;
 
 import java.time.LocalDateTime;
 

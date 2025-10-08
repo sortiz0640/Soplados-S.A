@@ -9,7 +9,6 @@ import java.io.IOException;
 
 public class VehiculoMenu {
     private VehiculoControlador controladorVehiculo = new VehiculoControlador();
-    private ClienteControlador controladorCliente = new ClienteControlador();
 
     private int mostrar() throws IOException {
         Consola.println("""
@@ -44,7 +43,7 @@ public class VehiculoMenu {
         int anioFabricacion = Consola.readInt("Ingrese AnioFabricacion: ");
         String kilometraje = Consola.readln("Ingrese Kilometraje: ");
 
-        controladorVehiculo.registrar(cliente, marca,  modelo, placa, anioFabricacion, kilometraje);
+        controladorVehiculo.registrar(cliente, marca, modelo, placa, anioFabricacion, kilometraje);
         Consola.println("Vehiculo registrado correctamente.");
 
     }

@@ -60,6 +60,7 @@ public class ClienteMenu {
         Cliente cliente = controlador.buscar(cedula);
         if (cliente == null) {
             Consola.println("El cliente no existe");
+            return;
         }
 
         Consola.println(cliente.toString());
@@ -73,6 +74,7 @@ public class ClienteMenu {
         String cedula = Consola.readln("Ingrese la cedula del cliente");
         if (!controlador.eliminar(cedula)) {
             Consola.println("El cliente no existe");
+            return;
         }
         Consola.println("Cliente eliminado correctamente");
     }
@@ -86,6 +88,7 @@ public class ClienteMenu {
 
         if (cliente == null) {
             Consola.println("El cliente no existe");
+            return;
         }
 
         vehiculo.activar(cliente);

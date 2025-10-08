@@ -1,5 +1,4 @@
 package modelos;
-import util.EstadoOrdenServicio;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
