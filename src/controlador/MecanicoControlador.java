@@ -2,73 +2,44 @@ package controlador;
 
 import app.BaseDatos;
 import modelos.Mecanico;
+import modelos.Mecanico;
 import util.Consola;
 
 import java.io.IOException;
 
 public class MecanicoControlador {
 
-    public void registrar() throws IOException {
-        String nombre = Consola.readln("Ingrese el nombre del mecanico");
-        String cedula = Consola.readln("Ingrese el cedula del mecanico");
-        String telefono = Consola.readln("Ingrese el telefono del mecanico");
-        String correo = Consola.readln("Ingrese el correo del mecanico");
-        String especialidad = Consola.readln("Ingrese la especialidad del mecanico");
-        double tarifaHora =- Consola.readDouble("Ingrese la tarifa x hora del mecanico");
-        Mecanico nuevoMecanico = new Mecanico(nombre, cedula, telefono, correo, especialidad, tarifaHora);
+    public boolean registrar(String nombre, String cedula, String telefono, String correo, String especialidad) throws IOException {
+
+        Mecanico nuevoMecanico = new Mecanico(nombre, cedula, telefono, correo, especialidad);
+        boolean existe = buscar(cedula)!=null;
+
+        if (!existe) {
+            return false;
+        }
+
         BaseDatos.listaMecanicos.add(nuevoMecanico);
-        Consola.println("Cliente registrado correctamente");
+        return true;
+
     }
 
-    public Mecanico buscar() throws IOException {
-        String cedula = Consola.readln("Ingrese la cedula del mecanico: ");
-        boolean encontrado = false;
-
-        for (Mecanico mecanico : BaseDatos.listaMecanicos) {
-            if (mecanico.getCedula().equals(cedula)) {
-                Consola.println("Cliente encontrado correctamente");
-                encontrado = true;
-                return mecanico;
+    public Mecanico buscar(String cedula) {
+        for (Mecanico Mecanico : BaseDatos.listaMecanicos) {
+            if (Mecanico.getCedula().equals(cedula)) {
+                return Mecanico;
             }
         }
-
-        if (!encontrado) {
-            Consola.println("El cliente no existe");
-        }
-
         return null;
     }
 
-    public void listar() {
-        if (BaseDatos.listaMecanicos.isEmpty()) {
-            Consola.println("No hay clientes registrados");
-        } else {
-            Consola.println("Lista de Clientes ");
-            for (Mecanico mecanico : BaseDatos.listaMecanicos) {
-                Consola.println(mecanico.toString());
+    public boolean eliminar(String cedula) throws IOException {
+
+        for (Mecanico Mecanico : BaseDatos.listaMecanicos) {
+            if (Mecanico.getCedula().equals(cedula)) {
+                BaseDatos.listaMecanicos.remove(Mecanico);
+                return true;
             }
         }
-    }
-
-    public void eliminar() throws IOException {
-        String cedula = Consola.readln("Ingrese la cedula del cliente: ");
-
-        boolean encontrado = false;
-        for (Mecanico mecanico : BaseDatos.listaMecanicos) {
-            if (mecanico.getCedula().equals(cedula)) {
-                Consola.println("Cliente eliminado correctamente");
-                BaseDatos.listaMecanicos.remove(mecanico);
-                encontrado = true;
-                break;
-            }
-        }
-
-        if (!encontrado) {
-            Consola.println("El cliente no existe");
-        }
-    }
-
-    public void agregarServicios() throws IOException {
-
+        return false;
     }
 }

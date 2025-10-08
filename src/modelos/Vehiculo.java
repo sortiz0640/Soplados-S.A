@@ -1,32 +1,20 @@
 package modelos;
-import util.TipoCombustible;
 
 public class Vehiculo {
 
-    private String idVehiculo;
     private String marca;
     private String modelo;
     private String numeroPlaca;
     private int anioFabricacion;
-    private TipoCombustible tipoCombustible;
     private String kilometraje;
 
-    public Vehiculo(String idVehiculo, String marca, String modelo, String numeroPlaca, int anioFabricacion, TipoCombustible tipoCombustible, String kilometraje) {
-        this.idVehiculo = idVehiculo;
+    public Vehiculo(String marca, String modelo, String numeroPlaca, int anioFabricacion, String kilometraje) {
+
         this.marca = marca;
         this.modelo = modelo;
         this.numeroPlaca = numeroPlaca;
         this.anioFabricacion = anioFabricacion;
-        this.tipoCombustible = tipoCombustible;
         this.kilometraje = kilometraje;
-    }
-
-    public String getIdVehiculo() {
-        return idVehiculo;
-    }
-
-    public void setIdVehiculo(String idVehiculo) {
-        this.idVehiculo = idVehiculo;
     }
 
     public String getMarca() {
@@ -59,14 +47,6 @@ public class Vehiculo {
 
     public void setAnioFabricacion(int anioFabricacion) {
         this.anioFabricacion = anioFabricacion;
-    }
-
-    public TipoCombustible getTipoCombustible() {
-        return tipoCombustible;
-    }
-
-    public TipoCombustible setTipoCombustible(TipoCombustible tipoCombustible) {
-        this.tipoCombustible = tipoCombustible;
     }
 
     public String getKilometraje() {

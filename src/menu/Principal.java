@@ -4,14 +4,13 @@ import modelos.OrdenServicio;
 import modelos.Vehiculo;
 import util.Consola;
 
-import java.awt.*;
 import java.io.IOException;
 
 public class Principal {
 
-    private Cliente cliente;
+    private ClienteMenu clienteMenu;
     private Vehiculo vehiculo;
-    private Mecanico mecanico;
+    private MecanicoMenu mecanico;
     private Repuesto repuestos;
     private OrdenServicio ordenServicio;
     private Factura facturacion;
@@ -37,7 +36,7 @@ public class Principal {
     public void activar() throws IOException {
         int opcion = mostrar();
         switch (opcion) {
-            case 1: cliente.activar(); break;
+            case 1: clienteMenu.activar(); break;
             case 2: vehiculo.activar(); break;
             case 3: mecanico.activar(); break;
             case 4: repuestos.activar(); break;

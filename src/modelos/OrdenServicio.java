@@ -10,10 +10,8 @@ public class OrdenServicio {
     private Cliente cliente;
     private LocalDateTime fechaIngreso;
     private LocalDateTime fechaEntregaEstimada;
-    private EstadoOrdenServicio estado;
     private double costoTotal;
     private ArrayList<Servicio> listaServicios;
-
 
     public int getNumeroOrden() {
         return numeroOrden;
@@ -53,14 +51,6 @@ public class OrdenServicio {
 
     public void setFechaEntregaEstimada(LocalDateTime fechaEntregaEstimada) {
         this.fechaEntregaEstimada = fechaEntregaEstimada;
-    }
-
-    public EstadoOrdenServicio getEstado() {
-        return estado;
-    }
-
-    public void setEstado(EstadoOrdenServicio estado) {
-        this.estado = estado;
     }
 
     public double getCostoTotal() {
