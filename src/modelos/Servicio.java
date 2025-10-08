@@ -8,6 +8,12 @@ public class Servicio {
     private Mecanico mecanicoAsignado;
     private double costo;
 
+    public Servicio(String nombre, Mecanico mecanico, double costo) {
+        this.nombre = nombre;
+        this.mecanicoAsignado = mecanico;
+        this.costo = costo;
+    }
+
     public String getNombre() {
         return nombre;
     }

@@ -13,7 +13,26 @@ public class Mecanico extends Persona {
 
     }
 
+    public boolean agregarServicio(Servicio servicio){
 
+        for(Servicio existeServicio: listaServicios){
+            if(existeServicio.getNombre().equals(servicio.getNombre())){
+                return false;
+            }
+        }
 
+        listaServicios.add(servicio);
+        return true;
 
+    }
+
+    public boolean eliminarServicio(String servicio){
+        for(Servicio existeServicio: listaServicios){
+            if (existeServicio.getNombre().equals(servicio)) {
+                listaServicios.remove(existeServicio);
+                return true;
+            }
+        }
+        return false;
+    }
 }

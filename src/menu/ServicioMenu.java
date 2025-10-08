@@ -33,25 +33,45 @@ public class ServicioMenu {
         }
     }
 
-    public void registrar(Mecanico mecanico) throws IOException{
+    public void registrar(Mecanico mecanico) throws IOException {
 
-        String nombre = Consola.readln("Ingrese el nombre del servicio: ");
-        double costo = Consola.readDouble("Ingrese el costo del servicio: ");
+        boolean continuar = true;
+        while (continuar) {
+            String nombre = Consola.readln("Ingrese el nombre del servicio: ").trim().toUpperCase();;
+            double costo = Consola.readDouble("Ingrese el costo del servicio: ");
 
-        boolean nuevoServicio = servicioControlador.registrar(nombre, costo, mecanico);
+            if (!servicioControlador.registrar(nombre, costo, mecanico)) {
+                Consola.println("El servicio ya existe.");
+                activar(mecanico);
+            } else {
+                Consola.println("Servicio registrado correctamente.");
+            }
 
-        if(!nuevoServicio){
-            Consola.println("El servicio ya existe");
-            activar(mecanico);
+            String opcion = Consola.readln("¿Desea agregar otro servicio? [Y/N]: ").trim().toUpperCase();
+            continuar = opcion.equals("Y");
+
         }
-
-        Consola.println("Servicio registrado correctamente");
     }
 
-    public void eliminar(Mecanico mecanico) throws IOException{
+    public void eliminar (Mecanico mecanico) throws IOException {
 
+        boolean continuar = true;
+
+        while (continuar) {
+            String nombre = Consola.readln("Ingrese el nombre del servicio: ").trim().toUpperCase();;
+
+            if (servicioControlador.eliminar(nombre, mecanico)) {
+                Consola.println("Servicio eliminado correctamente.");
+            } else {
+                Consola.println("El servicio especificado no existe");
+            }
+
+            String opcion = Consola.readln("¿Desea agregar otro servicio? [Y/N]: ").trim().toUpperCase();
+            continuar = opcion.equals("Y");
+
+        }
     }
-
-
-
 }
+
+
+

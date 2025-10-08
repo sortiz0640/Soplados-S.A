@@ -13,7 +13,6 @@ public class PrincipalMenu {
     private MecanicoMenu mecanico;
     private OrdenServicio ordenServicio;
     private Factura facturacion;
-    private
 
     private int mostrar() throws IOException {
         Consola.println("""
