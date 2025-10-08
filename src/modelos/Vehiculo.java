@@ -56,4 +56,15 @@ public class Vehiculo {
     public void setKilometraje(String kilometraje) {
         this.kilometraje = kilometraje;
     }
+
+    @Override
+    public String toString() {
+        return "Vehiculo[" +
+                "marca:'" + marca + '\'' +
+                ", modelo:'" + modelo + '\'' +
+                ", numeroPlaca:'" + numeroPlaca + '\'' +
+                ", anioFabricacion:" + anioFabricacion +
+                ", kilometraje:'" + kilometraje + '\'' +
+                ']';
+    }
 }

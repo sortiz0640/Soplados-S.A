@@ -18,7 +18,8 @@ public class ClienteMenu {
         [2] Consultar cliente (cedula)
         [3] Listar todos los clientes
         [4] Eliminar cliente
-        [5] Regresar
+        [5] Registrar vehiculo
+        [6] Regresar
         ===================================
         """);
 
@@ -33,7 +34,8 @@ public class ClienteMenu {
             case 2: buscar(); break;
             case 3: listar(); break;
             case 4: eliminar(); break;
-            case 5: return;
+            case 5: registrarVehiculo(); break;
+            case 6: return;
             default:
                 Consola.println("Opcion invalida. Intente nuevamente");
 
@@ -54,10 +56,10 @@ public class ClienteMenu {
     }
 
     public void buscar() throws IOException{
-        String cedula = Consola.readln("Ingrese el cedula del clienteMenu");
+        String cedula = Consola.readln("Ingrese el cedula del cliente");
         Cliente cliente = controlador.buscar(cedula);
         if (cliente == null) {
-            Consola.println("El clienteMenu no existe");
+            Consola.println("El cliente no existe");
         }
 
         Consola.println(cliente.toString());
@@ -73,5 +75,19 @@ public class ClienteMenu {
             Consola.println("El cliente no existe");
         }
         Consola.println("Cliente eliminado correctamente");
+    }
+
+    public void registrarVehiculo() throws IOException{
+
+        VehiculoMenu vehiculo =  new VehiculoMenu();
+
+        String cedula = Consola.readln("Ingrese el cedula del cliente");
+        Cliente cliente = controlador.buscar(cedula);
+
+        if (cliente == null) {
+            Consola.println("El cliente no existe");
+        }
+
+        vehiculo.activar(cliente);
     }
 }

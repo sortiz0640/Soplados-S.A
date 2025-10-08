@@ -6,12 +6,11 @@ import util.Consola;
 
 import java.io.IOException;
 
-public class Principal {
+public class PrincipalMenu {
 
     private ClienteMenu clienteMenu;
     private Vehiculo vehiculo;
     private MecanicoMenu mecanico;
-    private Repuesto repuestos;
     private OrdenServicio ordenServicio;
     private Factura facturacion;
     private
@@ -20,12 +19,10 @@ public class Principal {
         Consola.println("""
         =========== SOPLADOS S.A ==========
         [1] Gestion de Clientes
-        [2] Gestion de Vehiculos
-        [3] Gestion de Mecanicos
-        [4] Gestion de Repuestos
-        [5] Gestion de Ordenes de Servicio
-        [6] Facturacion
-        [8] Salir
+        [2] Gestion de Mecanicos
+        [3] Gestion de Ordenes de Servicio
+        [4] Facturacion
+        [5] Salir
         ===================================
         """);
 
@@ -37,12 +34,10 @@ public class Principal {
         int opcion = mostrar();
         switch (opcion) {
             case 1: clienteMenu.activar(); break;
-            case 2: vehiculo.activar(); break;
-            case 3: mecanico.activar(); break;
-            case 4: repuestos.activar(); break;
-            case 5: ordenServicio.acvitar(); break;
-            case 6: facturacion.activar(); break;
-            case 8: break;
+            case 2: mecanico.activar(); break;
+            case 3: ordenServicio.activar(); break;
+            case 4: facturacion.activar(); break;
+            case 5: break;
             default:
                 Consola.println("Opcion invalida. Intente nuevamente");
                 break;
