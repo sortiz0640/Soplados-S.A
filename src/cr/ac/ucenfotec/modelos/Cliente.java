@@ -1,13 +1,13 @@
-package modelos;
+package cr.ac.ucenfotec.modelos;
 
 import java.util.ArrayList;
 
 public class Cliente extends Persona {
 
-    private ArrayList<Vehiculo> listaVehiculos;
-    private ArrayList<OrdenServicio> listaOrdenServicios;
+    private ArrayList<Vehiculo> listaVehiculos = new ArrayList<>();
+    private ArrayList<OrdenServicio> listaOrdenServicios = new ArrayList<>();
 
-    public Cliente(String cedula, String nombre, String telefono, String correo) {
+    public Cliente(String nombre, String cedula, String telefono, String correo) {
         super(cedula, nombre, telefono, correo);
     }
 
@@ -27,8 +27,18 @@ public class Cliente extends Persona {
         return listaVehiculos;
     }
 
+    public Vehiculo getVehiculoPorPlaca(String placa) {
+        for (Vehiculo vehiculo : listaVehiculos) {
+            if(vehiculo.getNumeroPlaca().equals(placa))
+                return vehiculo;
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return super.toString();
     }
+
+
 }

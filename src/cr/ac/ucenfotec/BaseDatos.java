@@ -1,11 +1,13 @@
-package app;
-import modelos.*;
+package cr.ac.ucenfotec;
+import cr.ac.ucenfotec.modelos.*;
+import cr.ac.ucenfotec.modelos.Cliente;
+import cr.ac.ucenfotec.modelos.Mecanico;
+
 import java.util.ArrayList;
 
 public class BaseDatos {
     public static ArrayList<Cliente> listaClientes = new ArrayList<>();
     public static ArrayList<Mecanico> listaMecanicos = new ArrayList<>();
-    public static ArrayList<Factura> listaFacturas = new ArrayList<>();
 
     public static String listarTodosCliente() {
         String  listarTodosCliente = "";
@@ -16,10 +18,16 @@ public class BaseDatos {
     }
 
     public static String listarTodosMecanico() {
-        String  listarTodosCliente = "";
+        StringBuilder sb = new StringBuilder();
+        int contador = 1;
+
         for (Mecanico mecanico : listaMecanicos) {
-            listarTodosCliente += mecanico.toString() + "\n";
+            sb.append("[").append(contador).append("] ")
+                    .append(mecanico.toString())
+                    .append("\n");
+            contador++;
         }
-        return listarTodosCliente;
+
+        return sb.toString();
     }
 }

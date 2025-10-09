@@ -1,10 +1,9 @@
-package menu;
+package cr.ac.ucenfotec.ui;
 
-import app.BaseDatos;
-import controlador.MecanicoControlador;
-import modelos.Mecanico;
-import modelos.Servicio;
-import util.Consola;
+import cr.ac.ucenfotec.BaseDatos;
+import cr.ac.ucenfotec.controlador.MecanicoControlador;
+import cr.ac.ucenfotec.modelos.Mecanico;
+import cr.ac.ucenfotec.util.Consola;
 
 import java.io.IOException;
 
@@ -28,17 +27,21 @@ public class MecanicoMenu {
     }
 
     public void activar() throws IOException{
-        int opcion = mostrar();
-        switch (opcion){
-            case 1: registrar(); break;
-            case 2: buscar(); break;
-            case 3: listar(); break;
-            case 4: eliminar(); break;
-            case 5: return;
-            default:
-                Consola.println("Opcion invalida. Intente nuevamente");
+        int opcion;
+        do {
+            opcion = mostrar();
+            switch (opcion){
+                case 1: registrar(); break;
+                case 2: buscar(); break;
+                case 3: listar(); break;
+                case 4: eliminar(); break;
+                case 5: break;
+                default:
+                    Consola.println("Opcion invalida. Intente nuevamente");
 
-        }
+            }
+        } while (opcion != 5);
+
     }
 
     public void registrar() throws IOException{
@@ -70,6 +73,7 @@ public class MecanicoMenu {
         Mecanico mecanico = controlador.buscar(cedula);
         if (mecanico == null) {
             Consola.println("El mecanico no existe");
+            return;
         }
 
         Consola.println(mecanico.toString());
@@ -83,6 +87,7 @@ public class MecanicoMenu {
         String cedula = Consola.readln("Ingrese la cedula del mecanico");
         if (!controlador.eliminar(cedula)) {
             Consola.println("El mecanico no existe");
+            return;
         }
         Consola.println("Mecanico eliminado correctamente");
     }

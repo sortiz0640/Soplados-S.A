@@ -1,9 +1,8 @@
-package controlador;
+package cr.ac.ucenfotec.controlador;
 
-import app.BaseDatos;
-import modelos.Mecanico;
-import modelos.Mecanico;
-import util.Consola;
+import cr.ac.ucenfotec.BaseDatos;
+import cr.ac.ucenfotec.modelos.Mecanico;
+import cr.ac.ucenfotec.util.Consola;
 
 import java.io.IOException;
 
@@ -14,7 +13,7 @@ public class MecanicoControlador {
         Mecanico nuevoMecanico = new Mecanico(nombre, cedula, telefono, correo, especialidad);
         boolean existe = buscar(cedula)!=null;
 
-        if (!existe) {
+        if (existe) {
             return false;
         }
 
@@ -41,5 +40,17 @@ public class MecanicoControlador {
             }
         }
         return false;
+    }
+
+    public static Mecanico seleccionarMecanico(int opcion) throws IOException {
+
+        if (opcion < 1 || opcion > BaseDatos.listaMecanicos.size()) {
+            Consola.println("Opción inválida. Intente nuevamente.");
+            return null;
+        }
+
+        Mecanico mecanicoSeleccionado = BaseDatos.listaMecanicos.get(opcion - 1);
+
+        return mecanicoSeleccionado;
     }
 }

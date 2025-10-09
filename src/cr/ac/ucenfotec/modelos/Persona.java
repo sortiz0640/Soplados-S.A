@@ -1,4 +1,4 @@
-package modelos;
+package cr.ac.ucenfotec.modelos;
 
 public class Persona {
     private String cedula;

@@ -1,9 +1,9 @@
-package menu;
+package cr.ac.ucenfotec.ui;
 
-import app.BaseDatos;
-import util.Consola;
-import modelos.Cliente;
-import controlador.ClienteControlador;
+import cr.ac.ucenfotec.BaseDatos;
+import cr.ac.ucenfotec.util.Consola;
+import cr.ac.ucenfotec.modelos.Cliente;
+import cr.ac.ucenfotec.controlador.ClienteControlador;
 
 import java.io.IOException;
 
@@ -12,6 +12,8 @@ public class ClienteMenu {
     private ClienteControlador controlador = new ClienteControlador();
 
     private int mostrar() throws IOException {
+        int opcion = -1;
+
         Consola.println("""
         =========== SOPLADOS S.A ==========
         [1] Registrar cliente
@@ -23,33 +25,36 @@ public class ClienteMenu {
         ===================================
         """);
 
-        int opcion = Consola.readInt("Seleccione una opcion");
+        opcion = Consola.readInt("Seleccione una opcion");
         return opcion;
+
     }
 
     public void activar() throws IOException{
-        int opcion = mostrar();
-        switch (opcion){
-            case 1: registrar(); break;
-            case 2: buscar(); break;
-            case 3: listar(); break;
-            case 4: eliminar(); break;
-            case 5: registrarVehiculo(); break;
-            case 6: return;
-            default:
-                Consola.println("Opcion invalida. Intente nuevamente");
-
-        }
+        int opcion;
+        do {
+            opcion = mostrar();
+            switch (opcion){
+                case 1: registrar(); break;
+                case 2: buscar(); break;
+                case 3: listar(); break;
+                case 4: eliminar(); break;
+                case 5: registrarVehiculo(); break;
+                case 6: Consola.println("...");
+                default: Consola.println("Opcion invalida. Intente nuevamente");
+            }
+        } while (opcion != 6);
     }
 
     public void registrar() throws IOException{
-        String nombre = Consola.readln("Ingrese el nombre del clienteMenu");
-        String cedula = Consola.readln("Ingrese el cedula del clienteMenu");
-        String telefono = Consola.readln("Ingrese el telefono del clienteMenu");
-        String correo = Consola.readln("Ingrese el correo del clienteMenu");
+        String nombre = Consola.readln("Ingrese el nombre del cliente");
+        String cedula = Consola.readln("Ingrese el cedula del cliente");
+        String telefono = Consola.readln("Ingrese el telefono del cliente");
+        String correo = Consola.readln("Ingrese el correo del cliente");
 
         if (!controlador.registrar(nombre, cedula, telefono, correo)) {
-            Consola.println("El clienteMenu ya se encuentra registrado");
+            Consola.println("El cliente ya se encuentra registrado");
+            return;
         }
 
         Consola.println("Cliente registrado correctamente");
@@ -57,7 +62,7 @@ public class ClienteMenu {
 
     public void buscar() throws IOException{
         String cedula = Consola.readln("Ingrese el cedula del cliente");
-        Cliente cliente = controlador.buscar(cedula);
+        Cliente cliente = controlador.getCliente(cedula);
         if (cliente == null) {
             Consola.println("El cliente no existe");
             return;
@@ -84,7 +89,7 @@ public class ClienteMenu {
         VehiculoMenu vehiculo =  new VehiculoMenu();
 
         String cedula = Consola.readln("Ingrese el cedula del cliente");
-        Cliente cliente = controlador.buscar(cedula);
+        Cliente cliente = controlador.getCliente(cedula);
 
         if (cliente == null) {
             Consola.println("El cliente no existe");

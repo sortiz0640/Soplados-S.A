@@ -1,4 +1,4 @@
-package util;
+package cr.ac.ucenfotec.util;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

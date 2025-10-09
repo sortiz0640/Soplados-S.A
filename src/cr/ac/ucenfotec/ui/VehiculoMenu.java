@@ -1,9 +1,8 @@
-package menu;
-import controlador.ClienteControlador;
-import controlador.VehiculoControlador;
-import modelos.Cliente;
-import modelos.Vehiculo;
-import util.Consola;
+package cr.ac.ucenfotec.ui;
+import cr.ac.ucenfotec.controlador.VehiculoControlador;
+import cr.ac.ucenfotec.modelos.Cliente;
+import cr.ac.ucenfotec.modelos.Vehiculo;
+import cr.ac.ucenfotec.util.Consola;
 
 import java.io.IOException;
 
@@ -24,15 +23,19 @@ public class VehiculoMenu {
     }
 
     public void activar(Cliente cliente) throws IOException{
-        int opcion = mostrar();
-        switch (opcion){
-            case 1: registrar(cliente); break;
-            case 2: listar(cliente); break;
-            case 3: return;
-            default:
-                Consola.println("Opcion invalida. Intente nuevamente");
+        int opcion;
+        do {
+            opcion = mostrar();
+            switch (opcion){
+                case 1: registrar(cliente); break;
+                case 2: listar(cliente); break;
+                case 3: break;
+                default:
+                    Consola.println("Opcion invalida. Intente nuevamente");
 
-        }
+            }
+        } while (opcion != 3);
+
     }
 
     public void registrar(Cliente cliente) throws IOException{

@@ -1,6 +1,6 @@
-package controlador;
-import modelos.Vehiculo;
-import modelos.Cliente;
+package cr.ac.ucenfotec.controlador;
+import cr.ac.ucenfotec.modelos.Vehiculo;
+import cr.ac.ucenfotec.modelos.Cliente;
 
 
 public class VehiculoControlador {

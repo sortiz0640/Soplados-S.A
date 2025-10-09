@@ -1,7 +1,7 @@
-package menu;
-import controlador.ServicioControlador;
-import modelos.Mecanico;
-import util.Consola;
+package cr.ac.ucenfotec.ui;
+import cr.ac.ucenfotec.controlador.ServicioControlador;
+import cr.ac.ucenfotec.modelos.Mecanico;
+import cr.ac.ucenfotec.util.Consola;
 import java.io.IOException;
 
 public class ServicioMenu {
@@ -22,15 +22,19 @@ public class ServicioMenu {
     }
 
     public void activar(Mecanico mecanico) throws IOException{
-        int opcion = mostrar();
-        switch (opcion){
-            case 1: registrar(mecanico); break;
-            case 2: eliminar(mecanico); break;
-            case 3: return;
-            default:
-                Consola.println("Opcion invalida. Intente nuevamente");
+        int opcion;
+        do {
+            opcion = mostrar();
+            switch (opcion){
+                case 1: registrar(mecanico); break;
+                case 2: eliminar(mecanico); break;
+                case 3: break;
+                default:
+                    Consola.println("Opcion invalida. Intente nuevamente");
 
-        }
+            }
+        } while (opcion != 3);
+
     }
 
     public void registrar(Mecanico mecanico) throws IOException {
@@ -38,9 +42,8 @@ public class ServicioMenu {
         boolean continuar = true;
         while (continuar) {
             String nombre = Consola.readln("Ingrese el nombre del servicio: ").trim().toUpperCase();;
-            double costo = Consola.readDouble("Ingrese el costo del servicio: ");
 
-            if (!servicioControlador.registrar(nombre, costo, mecanico)) {
+            if (!servicioControlador.registrar(nombre, mecanico)) {
                 Consola.println("El servicio ya existe.");
                 activar(mecanico);
             } else {
@@ -53,7 +56,7 @@ public class ServicioMenu {
         }
     }
 
-    public void eliminar (Mecanico mecanico) throws IOException {
+    public void eliminar(Mecanico mecanico) throws IOException {
 
         boolean continuar = true;
 
