@@ -88,6 +88,16 @@ public class OrdenServicioMenu {
 
     public void buscar() throws IOException{
 
+        int numeroOrden = Consola.readInt("Ingrese el numero de orden: ");
+        OrdenServicio ordenEncontrada = ordenServicioControlador.getOrden(numeroOrden);
+
+        if (ordenEncontrada != null){
+            Consola.println(ordenEncontrada.toString());
+            return;
+        }
+
+        Consola.println("La orden especificada no existe");
+
     }
 
     public void listar() throws IOException{
