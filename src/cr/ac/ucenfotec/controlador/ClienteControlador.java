@@ -1,6 +1,5 @@
 package cr.ac.ucenfotec.controlador;
 import cr.ac.ucenfotec.modelos.Cliente;
-import cr.ac.ucenfotec.modelos.OrdenServicio;
 import cr.ac.ucenfotec.modelos.Vehiculo;
 import cr.ac.ucenfotec.util.Estado;
 import cr.ac.ucenfotec.BaseDatos;
@@ -67,15 +66,4 @@ public class ClienteControlador {
 
     }
 
-    public OrdenServicio agregarOrdenServicio (OrdenServicio orden, String cedula) throws IOException {
-
-        Cliente cliente = getCliente(cedula);
-        if (cliente == null) {
-            return null;
-        }
-
-        cliente.agregarOrdenServicio(orden);
-        return orden;
-
-    }
 }

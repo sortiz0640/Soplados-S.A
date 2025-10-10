@@ -17,15 +17,14 @@ public class BaseDatos {
         return listarTodosCliente;
     }
 
-    public static String listarTodosMecanico() {
+    public static String listarTodosMecanicos() {
         StringBuilder sb = new StringBuilder();
-        int contador = 1;
+        sb.append("\n=== MECANICOS DISPONIBLES ===\n");
 
-        for (Mecanico mecanico : listaMecanicos) {
-            sb.append("[").append(contador).append("] ")
-                    .append(mecanico.toString())
-                    .append("\n");
-            contador++;
+        for (int i = 0; i < BaseDatos.listaMecanicos.size(); i++) {
+            Mecanico m = BaseDatos.listaMecanicos.get(i);
+            sb.append("[").append(i + 1).append("] ");
+            sb.append(m.toString()).append("\n");
         }
 
         return sb.toString();

@@ -46,8 +46,16 @@ public class VehiculoMenu {
         int anioFabricacion = Consola.readInt("Ingrese AnioFabricacion: ");
         String kilometraje = Consola.readln("Ingrese Kilometraje: ");
 
-        controladorVehiculo.registrar(cliente, marca, modelo, placa, anioFabricacion, kilometraje);
+        Vehiculo nuevo = controladorVehiculo.registrar(cliente, marca, modelo, placa, anioFabricacion, kilometraje);
+
+        if (nuevo == null) {
+            Consola.println("El vehiculo ya se encuentra registrado");
+            return;
+        }
+
         Consola.println("Vehiculo registrado correctamente.");
+        Consola.println(nuevo.toString());
+
 
     }
 

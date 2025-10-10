@@ -21,50 +21,34 @@ public class Vehiculo {
         return marca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
 
     public String getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
 
     public String getNumeroPlaca() {
         return numeroPlaca;
-    }
-
-    public void setNumeroPlaca(String numeroPlaca) {
-        this.numeroPlaca = numeroPlaca;
     }
 
     public int getAnioFabricacion() {
         return anioFabricacion;
     }
 
-    public void setAnioFabricacion(int anioFabricacion) {
-        this.anioFabricacion = anioFabricacion;
-    }
-
     public String getKilometraje() {
         return kilometraje;
     }
 
-    public void setKilometraje(String kilometraje) {
-        this.kilometraje = kilometraje;
-    }
-
     @Override
     public String toString() {
-        return "Vehiculo[" +
-                "marca:'" + marca + '\'' +
-                ", modelo:'" + modelo + '\'' +
-                ", numeroPlaca:'" + numeroPlaca + '\'' +
-                ", anioFabricacion:" + anioFabricacion +
-                ", kilometraje:'" + kilometraje + '\'' +
-                ']';
+        StringBuilder sb = new StringBuilder();
+        sb.append("═══ VEHÍCULO ═══\n");
+        sb.append("Placa: ").append(numeroPlaca).append("\n");
+        sb.append("Marca: ").append(marca).append("\n");
+        sb.append("Modelo: ").append(modelo).append("\n");
+        sb.append("Año de fabricación: ").append(anioFabricacion).append("\n");
+        sb.append("Kilometraje: ").append(kilometraje).append(" km\n");
+        sb.append("═══════════════");
+        return sb.toString();
     }
 }

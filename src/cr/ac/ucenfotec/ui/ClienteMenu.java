@@ -20,7 +20,7 @@ public class ClienteMenu {
         [2] Consultar cliente (cedula)
         [3] Listar todos los clientes
         [4] Eliminar cliente
-        [5] Registrar vehiculo
+        [5] Gestionar vehiculos
         [6] Regresar
         ===================================
         """);
@@ -40,7 +40,7 @@ public class ClienteMenu {
                 case 3: listar(); break;
                 case 4: eliminar(); break;
                 case 5: registrarVehiculo(); break;
-                case 6: Consola.println("...");
+                case 6: Consola.println("..."); break;
                 default: Consola.println("Opcion invalida. Intente nuevamente");
             }
         } while (opcion != 6);

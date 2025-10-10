@@ -40,30 +40,19 @@ public class Mecanico extends Persona {
         return especialidad;
     }
 
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
-
-    public ArrayList<Servicio> getListaServicios() {
-        return listaServicios;
-    }
-
-    public void setListaServicios(ArrayList<Servicio> listaServicios) {
-        this.listaServicios = listaServicios;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Mecánico: ").append(getNombre())
-                .append(" | Especialidad: ").append(especialidad)
-                .append("\nServicios: ");
+                .append(" (Cédula: ").append(getCedula()).append(")")
+                .append("\nEspecialidad: ").append(especialidad)
+                .append("\nServicios que ofrece: ");
 
         if (listaServicios.isEmpty()) {
             sb.append("Ninguno");
         } else {
-            for (Servicio s : listaServicios) {
-                sb.append("\n   - ").append(s.getNombre());
+            for (int i = 0; i < listaServicios.size(); i++) {
+                sb.append("\n   ").append(i + 1).append(". ").append(listaServicios.get(i).getNombre());
             }
         }
 

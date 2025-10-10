@@ -14,17 +14,4 @@ public class Servicio {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Mecanico getMecanicoAsignado() {
-        return mecanicoAsignado;
-    }
-
-    public void setMecanicoAsignado(Mecanico mecanicoAsignado) {
-        this.mecanicoAsignado = mecanicoAsignado;
-    }
-
-
 }

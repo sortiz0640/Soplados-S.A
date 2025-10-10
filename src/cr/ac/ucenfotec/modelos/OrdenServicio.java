@@ -26,44 +26,8 @@ public class OrdenServicio {
         return numeroOrden;
     }
 
-    public void setNumeroOrden() {
-        this.numeroOrden = generarNumeroOrden();
-    }
-
     public int generarNumeroOrden() {
         return (int) (Math.random() * 9000) + 1000;
-    }
-
-    public Vehiculo getVehiculo() {
-        return vehiculo;
-    }
-
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public LocalDateTime getFechaIngreso() {
-        return fechaIngreso;
-    }
-
-    public void setFechaIngreso(LocalDateTime fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
-
-    public LocalDateTime getFechaEntregaEstimada() {
-        return fechaEntregaEstimada;
-    }
-
-    public void setFechaEntregaEstimada(LocalDateTime fechaEntregaEstimada) {
-        this.fechaEntregaEstimada = fechaEntregaEstimada;
     }
 
     private String formatearFecha(LocalDateTime fecha) {
@@ -77,16 +41,22 @@ public class OrdenServicio {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("══════════════════════════════════════════════\n");
+        sb.append("╔════════════════════════════════════════════╗\n");
         sb.append("              🧾 ORDEN DE SERVICIO\n");
-        sb.append("══════════════════════════════════════════════\n");
+        sb.append("╠════════════════════════════════════════════╣\n");
         sb.append("Número de Orden: ").append(numeroOrden).append("\n");
         sb.append("Cliente: ").append(cliente.getNombre()).append("\n");
-        sb.append("Vehículo: ").append(vehiculo.getNumeroPlaca()).append("\n");
+        sb.append("\n--- DETALLES DEL VEHÍCULO ---\n");
+        sb.append("Placa: ").append(vehiculo.getNumeroPlaca()).append("\n");
+        sb.append("Marca: ").append(vehiculo.getMarca()).append("\n");
+        sb.append("Modelo: ").append(vehiculo.getModelo()).append("\n");
+        sb.append("Año: ").append(vehiculo.getAnioFabricacion()).append("\n");
+        sb.append("Kilometraje: ").append(vehiculo.getKilometraje()).append("\n");
+        sb.append("\n--- MECÁNICO ASIGNADO ---\n");
         sb.append(mecanico.toString()).append("\n");
         sb.append("Fecha de ingreso: ").append(formatearFecha(fechaIngreso)).append("\n");
         sb.append("Fecha entrega estimada: ").append(formatearFecha(fechaEntregaEstimada)).append("\n");
-        sb.append("══════════════════════════════════════════════\n");
+        sb.append("╚════════════════════════════════════════════╝\n");
 
         return sb.toString();
     }

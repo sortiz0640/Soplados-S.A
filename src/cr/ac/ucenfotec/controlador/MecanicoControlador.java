@@ -42,7 +42,7 @@ public class MecanicoControlador {
         return false;
     }
 
-    public static Mecanico seleccionarMecanico(int opcion) throws IOException {
+    public Mecanico seleccionarMecanico(int opcion) throws IOException {
 
         if (opcion < 1 || opcion > BaseDatos.listaMecanicos.size()) {
             Consola.println("Opción inválida. Intente nuevamente.");

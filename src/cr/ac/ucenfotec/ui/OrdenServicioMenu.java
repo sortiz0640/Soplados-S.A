@@ -11,6 +11,7 @@ import cr.ac.ucenfotec.util.Estado;
 import cr.ac.ucenfotec.util.Consola;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class OrdenServicioMenu {
 
@@ -70,7 +71,7 @@ public class OrdenServicioMenu {
 
     public void crear(Cliente cliente, String placa) throws IOException{
 
-        Consola.println(BaseDatos.listarTodosMecanico());
+        Consola.println(BaseDatos.listarTodosMecanicos());
         int opcion = Consola.readInt("Seleccione un mecanico");
 
         Mecanico mecanico = mecanicoControlador.seleccionarMecanico(opcion);
@@ -81,6 +82,12 @@ public class OrdenServicioMenu {
         }
 
         OrdenServicio orden = ordenServicioControlador.crearOrdenServicio(cliente, placa, mecanico);
+
+        if (orden == null){
+            Consola.println("La placa del vehiculo no existe. Intente nuevamente");
+            return;
+        }
+
         Consola.println("Orden: " + orden.getNumeroOrden() + " creada correctamente");
         Consola.println(orden.toString());
 
@@ -89,7 +96,7 @@ public class OrdenServicioMenu {
     public void buscar() throws IOException{
 
         int numeroOrden = Consola.readInt("Ingrese el numero de orden: ");
-        OrdenServicio ordenEncontrada = ordenServicioControlador.getOrden(numeroOrden);
+        OrdenServicio ordenEncontrada = ordenServicioControlador.getOrdenServicio(numeroOrden);
 
         if (ordenEncontrada != null){
             Consola.println(ordenEncontrada.toString());
@@ -102,9 +109,37 @@ public class OrdenServicioMenu {
 
     public void listar() throws IOException{
 
+        String cedula = Consola.readln("Ingrese la cedula del cliente");
+        Cliente cliente = clienteControlador.getCliente(cedula);
+
+        if (cliente == null) {
+            Consola.println("El cliente no existe");
+            return;
+        }
+
+        ArrayList<OrdenServicio> ordenes = cliente.getListaOrdenServicios();
+
+        if (ordenes.isEmpty()) {
+            Consola.println("El cliente no tiene ordenes de servicio");
+            return;
+        }
+
+        Consola.println("\n=== ORDENES DE SERVICIO ===");
+        for (OrdenServicio orden : ordenes) {
+            Consola.println(orden.toString());
+        }
+
     }
 
     public void eliminar() throws IOException{
+        int numeroOrden = Consola.readInt("Ingrese el numero de orden: ");
+        boolean ordenEncontrada = ordenServicioControlador.eliminarOrdenServicio(numeroOrden);
 
+        if (!ordenEncontrada){
+            Consola.println("La orden especificada no existe");
+            return;
+        }
+
+        Consola.println("La orden fue eliminada correctamente");
     }
 }

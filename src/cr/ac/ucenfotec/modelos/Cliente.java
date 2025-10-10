@@ -15,7 +15,7 @@ public class Cliente extends Persona {
         this.listaOrdenServicios.add(ordenNueva);
     }
 
-    public ArrayList<OrdenServicio> getOrdenServicios() {
+    public ArrayList<OrdenServicio> getListaOrdenServicios() {
         return listaOrdenServicios;
     }
 
@@ -37,7 +37,24 @@ public class Cliente extends Persona {
 
     @Override
     public String toString() {
-        return super.toString();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n=== INFORMACION DEL CLIENTE ===\n");
+        sb.append("Nombre: ").append(getNombre()).append("\n");
+        sb.append("Cedula: ").append(getCedula()).append("\n");
+        sb.append("Telefono: ").append(getTelefono()).append("\n");
+        sb.append("Correo: ").append(getCorreo()).append("\n");
+
+        sb.append("\nVehiculos registrados: ").append(listaVehiculos.size()).append("\n");
+        for (Vehiculo v : listaVehiculos) {
+            sb.append("  - ").append(v.getNumeroPlaca())
+                    .append(" (").append(v.getMarca()).append(" ")
+                    .append(v.getModelo()).append(")\n");
+        }
+
+        sb.append("Ordenes de servicio: ").append(listaOrdenServicios.size()).append("\n");
+
+        return sb.toString();
     }
 
 

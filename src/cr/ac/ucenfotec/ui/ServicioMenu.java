@@ -45,7 +45,6 @@ public class ServicioMenu {
 
             if (!servicioControlador.registrar(nombre, mecanico)) {
                 Consola.println("El servicio ya existe.");
-                activar(mecanico);
             } else {
                 Consola.println("Servicio registrado correctamente.");
             }
@@ -69,7 +68,7 @@ public class ServicioMenu {
                 Consola.println("El servicio especificado no existe");
             }
 
-            String opcion = Consola.readln("¿Desea agregar otro servicio? [Y/N]: ").trim().toUpperCase();
+            String opcion = Consola.readln("¿Desea eliminar otro servicio? [Y/N]: ").trim().toUpperCase();
             continuar = opcion.equals("Y");
 
         }

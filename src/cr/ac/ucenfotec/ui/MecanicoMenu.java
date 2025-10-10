@@ -80,7 +80,7 @@ public class MecanicoMenu {
     }
 
     public void listar() throws IOException{
-        Consola.println("Lista de mecanico: " + BaseDatos.listarTodosMecanico());
+        Consola.println("Lista de mecanico: " + BaseDatos.listarTodosMecanicos());
     }
 
     public void eliminar() throws IOException{

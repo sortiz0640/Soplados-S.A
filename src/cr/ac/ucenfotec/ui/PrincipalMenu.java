@@ -13,7 +13,6 @@ public class PrincipalMenu {
         [1] Gestion de Clientes
         [2] Gestion de Mecanicos
         [3] Gestion de Ordenes de Servicio
-        [4] Facturacion
         [5] Salir
         ===================================
         """);
