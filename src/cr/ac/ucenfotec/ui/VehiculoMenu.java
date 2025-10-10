@@ -59,7 +59,7 @@ public class VehiculoMenu {
 
     }
 
-    public void listar(Cliente cliente) throws IOException{
+    public void listar(Cliente cliente) {
 
         for (Vehiculo vehiculo : cliente.getVehiculos()) {
             Consola.println(vehiculo.toString() + "\n");
