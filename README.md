@@ -82,13 +82,6 @@ El sistema utiliza `BaseDatos` como almacenamiento temporal con:
 - **OrdenServicio**: Orden de trabajo con fechas y asignaciones
 - **Servicio**: Tipo de servicio que ofrece un mecánico
 
-## Tecnologías
-
-- **Java** (versión compatible con Java 8+)
-- **Collections Framework** (ArrayList)
-- **LocalDateTime** para manejo de fechas
-- **StringBuilder** para construcción eficiente de strings
-
 ## Notas Importantes
 
 - Los datos se almacenan en memoria (se pierden al cerrar el programa)
