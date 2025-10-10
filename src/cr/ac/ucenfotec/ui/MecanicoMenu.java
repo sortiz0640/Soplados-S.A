@@ -9,8 +9,11 @@ import java.io.IOException;
 
 public class MecanicoMenu {
 
+    // Esta clase se utiliza para el manejo de mecanicos. Depende de multiples clases para funcionar (BaseDatos, Consola, Cliente, ClienteControlador)
+
     private MecanicoControlador controlador = new MecanicoControlador();
 
+    // Muestra el metodo en pantalla
     private int mostrar() throws IOException {
         Consola.println("""
         =========== SOPLADOS S.A ==========
@@ -29,7 +32,7 @@ public class MecanicoMenu {
     public void activar() throws IOException{
         int opcion;
         do {
-            opcion = mostrar();
+            opcion = mostrar(); // Llama el metodo mostrar() hasta que el usuario decida romper el bucle
             switch (opcion){
                 case 1: registrar(); break;
                 case 2: buscar(); break;
@@ -59,15 +62,16 @@ public class MecanicoMenu {
         Consola.println("Mecanico registrado correctamente");
         Consola.println("A continuacion, agregue los servicios que impartira el mecanico...");
 
-        // INSTANCIA SERVICIO: Crea una instancia del mecanico recien registrado y se envia a ServicioMenu
-        // ServicioMenu se encarga de solicitar los servicios que imparte el mecanico
+        /* INSTANCIA SERVICIO: Crea una instancia del mecanico recien registrado y se envia a ServicioMenu
+               > ServicioMenu se encarga de solicitar los servicios que imparte el mecanico */
 
-        ServicioMenu servicioMenu = new ServicioMenu();
+        ServicioMenu servicioMenu = new ServicioMenu(); // Se crea una instancia del menu de los servicios
         Mecanico mecanico = controlador.buscar(cedula);
-        servicioMenu.activar(mecanico);
+        servicioMenu.activar(mecanico); // Se activa el menu de servicios y se envia el mecanico recien registrado.
 
     }
 
+    // Imprime en pantalla el mecanico especificado según cedula
     public void buscar() throws IOException{
         String cedula = Consola.readln("Ingrese el cedula del mecanico");
         Mecanico mecanico = controlador.buscar(cedula);
@@ -78,11 +82,12 @@ public class MecanicoMenu {
 
         Consola.println(mecanico.toString());
     }
-
+    // Imprime todos los mecanicos guardados
     public void listar() throws IOException{
         Consola.println("Lista de mecanico: " + BaseDatos.listarTodosMecanicos());
     }
 
+    // Elimina mecanico segun cedula
     public void eliminar() throws IOException{
         String cedula = Consola.readln("Ingrese la cedula del mecanico");
         if (!controlador.eliminar(cedula)) {

@@ -12,11 +12,6 @@ public class OrdenServicioControlador {
 
     public OrdenServicio crearOrdenServicio(Cliente cliente, String placa, Mecanico mecanico) throws IOException {
 
-        Vehiculo vehiculo = cliente.getVehiculoPorPlaca(placa);
-        if (vehiculo == null) {
-            return null;
-        }
-
         OrdenServicio ordenServicio = new OrdenServicio(cliente, placa, mecanico);
         cliente.agregarOrdenServicio(ordenServicio);
         return ordenServicio;

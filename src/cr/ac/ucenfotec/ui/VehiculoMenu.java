@@ -25,7 +25,7 @@ public class VehiculoMenu {
     public void activar(Cliente cliente) throws IOException{
         int opcion;
         do {
-            opcion = mostrar();
+            opcion = mostrar(); // Llama el metodo mostrar() hasta que el usuario decida romper el bucle
             switch (opcion){
                 case 1: registrar(cliente); break;
                 case 2: listar(cliente); break;

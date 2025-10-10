@@ -8,6 +8,8 @@ public class Vehiculo {
     private int anioFabricacion;
     private String kilometraje;
 
+    // Clase con COMPOSICIÓN. Un vehículo solo puede existir si un cliente ha sido registrado, junto a un vehículo
+
     public Vehiculo(String marca, String modelo, String numeroPlaca, int anioFabricacion, String kilometraje) {
 
         this.marca = marca;
@@ -41,6 +43,9 @@ public class Vehiculo {
 
     @Override
     public String toString() {
+
+        // Generado con el apoyo de herramientas externas para mejorar el apartado visual.
+
         StringBuilder sb = new StringBuilder();
         sb.append("═══ VEHÍCULO ═══\n");
         sb.append("Placa: ").append(numeroPlaca).append("\n");

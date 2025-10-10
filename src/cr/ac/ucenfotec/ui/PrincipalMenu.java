@@ -24,7 +24,7 @@ public class PrincipalMenu {
     public void activar() throws IOException {
         int opcion;
         do {
-            opcion = mostrar();
+            opcion = mostrar(); // Llama el metodo mostrar() hasta que el usuario decida romper el bucle
             switch (opcion) {
                 case 1: clienteMenu.activar(); break;
                 case 2: mecanicoMenu.activar(); break;

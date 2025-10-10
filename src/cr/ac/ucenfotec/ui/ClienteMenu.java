@@ -9,6 +9,8 @@ import java.io.IOException;
 
 public class ClienteMenu {
 
+    // Esta clase se utiliza para el manejo de clientes. Depende de multiples clases para funcionar (BaseDatos, Consola, Cliente, ClienteControlador)
+
     private ClienteControlador controlador = new ClienteControlador();
 
     private int mostrar() throws IOException {
@@ -30,10 +32,11 @@ public class ClienteMenu {
 
     }
 
+    // Este metodo activa el menu de los clientes y crea un bucle hasta que el usuario decida regresar.
     public void activar() throws IOException{
         int opcion;
         do {
-            opcion = mostrar();
+            opcion = mostrar(); // Llama el metodo mostrar() hasta que el usuario decida romper el bucle
             switch (opcion){
                 case 1: registrar(); break;
                 case 2: buscar(); break;
@@ -84,9 +87,10 @@ public class ClienteMenu {
         Consola.println("Cliente eliminado correctamente");
     }
 
+    // Metodo para registrar vehiculos, se valida previamente que el cliente exista para activar el menu de los vehiculos
     public void registrarVehiculo() throws IOException{
 
-        VehiculoMenu vehiculo =  new VehiculoMenu();
+        VehiculoMenu vehiculoMenu =  new VehiculoMenu();
 
         String cedula = Consola.readln("Ingrese el cedula del cliente");
         Cliente cliente = controlador.getCliente(cedula);
@@ -96,6 +100,6 @@ public class ClienteMenu {
             return;
         }
 
-        vehiculo.activar(cliente);
+        vehiculoMenu.activar(cliente);
     }
 }

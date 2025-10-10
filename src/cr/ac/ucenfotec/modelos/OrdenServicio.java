@@ -11,6 +11,8 @@ public class OrdenServicio {
     private LocalDateTime fechaEntregaEstimada;
     private Mecanico mecanico;
 
+    // Clase con AGREGACIÓN: La orden requiere de Cliente, Vehículo y Mecanico. Estas clases pueden existir sin OrdenServicio.
+
     public OrdenServicio(Cliente cliente, String placa, Mecanico mecanico) throws IOException {
 
         this.numeroOrden = generarNumeroOrden();
@@ -26,10 +28,11 @@ public class OrdenServicio {
         return numeroOrden;
     }
 
+    // Metodo para generar un número random de la orden. No se implementó alguna validation para evitar duplicados :C
     public int generarNumeroOrden() {
-        return (int) (Math.random() * 9000) + 1000;
+        return (int) (Math.random() * 9000) + 100000;
     }
-
+    // Metodo generado con herramientas externas para mejorar la experiencia visual
     private String formatearFecha(LocalDateTime fecha) {
         return fecha.getDayOfMonth() + "/" +
                 fecha.getMonthValue() + "/" +
@@ -39,6 +42,9 @@ public class OrdenServicio {
 
     @Override
     public String toString() {
+
+        // Generado con el apoyo de herramientas externas para mejorar el apartado visual.
+
         StringBuilder sb = new StringBuilder();
 
         sb.append("╔════════════════════════════════════════════╗\n");
@@ -60,8 +66,4 @@ public class OrdenServicio {
 
         return sb.toString();
     }
-
-
-
-
 }

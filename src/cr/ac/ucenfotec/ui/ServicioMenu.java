@@ -24,7 +24,7 @@ public class ServicioMenu {
     public void activar(Mecanico mecanico) throws IOException{
         int opcion;
         do {
-            opcion = mostrar();
+            opcion = mostrar(); // Llama el metodo mostrar() hasta que el usuario decida romper el bucle
             switch (opcion){
                 case 1: registrar(mecanico); break;
                 case 2: eliminar(mecanico); break;

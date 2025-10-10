@@ -7,6 +7,8 @@ public class Mecanico extends Persona {
     private String especialidad;
     private ArrayList<Servicio> listaServicios;
 
+    // Mecanico extiende Persona para el almacenamiento de datos personales. Servicios depende de la existencia de un mecanico para existir.
+
     public Mecanico(String nombre, String cedula, String telefono, String correo,String especialidad) {
         super(cedula, nombre, telefono, correo);
         this.especialidad = especialidad;
@@ -36,12 +38,11 @@ public class Mecanico extends Persona {
         return false;
     }
 
-    public String getEspecialidad() {
-        return especialidad;
-    }
-
     @Override
     public String toString() {
+
+        // Generado con el apoyo de herramientas externas para mejorar el apartado visual.
+
         StringBuilder sb = new StringBuilder();
         sb.append("Mecánico: ").append(getNombre())
                 .append(" (Cédula: ").append(getCedula()).append(")")

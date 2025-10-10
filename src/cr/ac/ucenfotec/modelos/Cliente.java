@@ -4,9 +4,14 @@ import java.util.ArrayList;
 
 public class Cliente extends Persona {
 
+    // Cliente: Presenta COMPOSICIÓN con Vehiculos, si un cliente se elimina, sus vehiculos también.
+    // Almacena un arreglo de sus vehiculos y sus órdenes de servicio
+    // Extiende la clase Persona para almacenar los datos básicos del cliente
+
     private ArrayList<Vehiculo> listaVehiculos = new ArrayList<>();
     private ArrayList<OrdenServicio> listaOrdenServicios = new ArrayList<>();
 
+    // Constructor
     public Cliente(String nombre, String cedula, String telefono, String correo) {
         super(cedula, nombre, telefono, correo);
     }
@@ -15,18 +20,23 @@ public class Cliente extends Persona {
         this.listaOrdenServicios.add(ordenNueva);
     }
 
+    // Retorna el arreglo de listaOrdenServicios
     public ArrayList<OrdenServicio> getListaOrdenServicios() {
         return listaOrdenServicios;
     }
 
+    // Agrega un vehiculo a ListaVehiculos
     public void agregarVehiculo(Vehiculo vehiculos) {
         this.listaVehiculos.add(vehiculos);
     }
 
+    // Retorna el arreglo de listaVehiculos
     public ArrayList<Vehiculo> getVehiculos() {
         return listaVehiculos;
     }
 
+
+    // Devuelve el vehículo especificado, espera siempre un vehículo existente (se valida previamente en ControladorVehiculo)
     public Vehiculo getVehiculoPorPlaca(String placa) {
         for (Vehiculo vehiculo : listaVehiculos) {
             if(vehiculo.getNumeroPlaca().equals(placa))
@@ -37,6 +47,8 @@ public class Cliente extends Persona {
 
     @Override
     public String toString() {
+
+        // Generado con el apoyo de herramientas externas para mejorar el apartado visual.
 
         StringBuilder sb = new StringBuilder();
         sb.append("\n=== INFORMACION DEL CLIENTE ===\n");
