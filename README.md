@@ -35,6 +35,16 @@ SOPLADOS S.A. es una aplicación de consola que facilita la gestión completa de
 - Listar todas las órdenes de un cliente
 - Eliminar órdenes de servicio
 
+##  Cómo Usar
+- Se debe ejecutar la clase Main para dar inicio al programa.
+
+### Flujo típico de uso
+1. **Registrar un mecánico** con su especialidad y servicios
+2. **Registrar un cliente** con su información personal
+3. **Agregar vehículos** al cliente registrado
+4. **Crear orden de servicio** seleccionando cliente, vehículo y mecánico
+5. **Consultar y gestionar** las órdenes creadas
+
 ## Relaciones entre Clases
 
 ### 1. **Herencia**
@@ -55,16 +65,6 @@ SOPLADOS S.A. es una aplicación de consola que facilita la gestión completa de
 
 ### 5. **Asosiacion**
 - Si bien `OrdenServicio` presenta agregacion con `Cliente`, `Vehiculo` y `Mecanico`, tambien permite la asociacion entre estas 3. 
-
-##  Cómo Usar
-- Se debe ejecutar la clase Main para dar inicio al programa.
-- 
-### Flujo típico de uso
-1. **Registrar un mecánico** con su especialidad y servicios
-2. **Registrar un cliente** con su información personal
-3. **Agregar vehículos** al cliente registrado
-4. **Crear orden de servicio** seleccionando cliente, vehículo y mecánico
-5. **Consultar y gestionar** las órdenes creadas
 
 ## Estructura de Datos
 
@@ -94,4 +94,6 @@ El sistema utiliza `BaseDatos` como almacenamiento temporal con:
 - Los datos se almacenan en memoria (se pierden al cerrar el programa)
 - Los números de orden se generan aleatoriamente entre 1000-9999
 - La fecha de entrega estimada es automáticamente 1 mes después del ingreso
+- No hay validaciones para verificar las entradas, el tipo de entrada, etc.
+- Tratar de ingresar la informacion tal y como se solicita para evitar caidas!
 
