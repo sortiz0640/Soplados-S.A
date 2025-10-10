@@ -6,7 +6,7 @@ Sistema de gestión integral para talleres mecánicos desarrollado en Java, que 
 
 SOPLADOS S.A. es una aplicación de consola que facilita la gestión completa de un taller mecánico, desde el registro de clientes y sus vehículos hasta la creación y seguimiento de órdenes de servicio con mecánicos especializados.
 
-## 🎯 Funcionalidades Principales
+## Funcionalidades Principales
 
 ### Gestión de Clientes
 - Registrar nuevos clientes con información personal
