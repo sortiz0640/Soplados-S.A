@@ -53,16 +53,12 @@ SOPLADOS S.A. es una aplicación de consola que facilita la gestión completa de
 - Clases `ui` dependen de `controlador`
 - Clases `controlador` dependen de `modelos`
 
-Tambien se da la relacion de muchas clases entre si, que no dependen unas a las otras para existir.
+### 5. **Asosiacion**
+-- Si bien `OrdenServicio` presenta agregacion con `Cliente`, `Vehiculo` y `Mecanico`, tambien permite la asociacion entre estas 3. 
 
 ##  Cómo Usar
-
-### Ejecutar el programa
-```bash
-javac cr/ac/ucenfotec/Main.java
-java cr.ac.ucenfotec.Main
-```
-
+- Se debe ejecutar la clase Main para dar inicio al programa.
+- 
 ### Flujo típico de uso
 1. **Registrar un mecánico** con su especialidad y servicios
 2. **Registrar un cliente** con su información personal
