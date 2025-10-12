@@ -67,7 +67,7 @@ SOPLADOS S.A. es una aplicación de consola que facilita la gestión completa de
 - Si bien `OrdenServicio` presenta agregacion con `Cliente`, `Vehiculo` y `Mecanico`, tambien permite la asociacion entre estas 3.
 
 ## Diagrama de clases UML
-![Diagrama UML Soplados S.A](diagrama.png)
+![Diagrama UML Soplados S.A](Diagrama UML Soplados S.A.png)
 
 ## Estructura de Datos
 
